@@ -1,0 +1,15 @@
+
+J
+java:S3740"/Provide the parametrized type for this generic.(ó„£øÿÿÿÿ
+b
+java:S1192"GDefine a constant instead of duplicating this literal "claims" 3 times.(€û—àúÿÿÿÿ
+{
+java:S1488."eImmediately return this expression instead of assigning it to the temporary variable "authorityList".(ßëÖ¨
+{
+java:S1488:"eImmediately return this expression instead of assigning it to the temporary variable "authorityList".(ßëÖ¨
+a
+java:S2259O"FA "NullPointerException" could be thrown; "convert()" can return null.(ò‡Áîûÿÿÿÿ
+œ
+java:S1186A"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Õú›üÿÿÿÿ
+H
+java:S1905O"-Remove this unnecessary cast to "Collection".(ò‡Áîûÿÿÿÿ

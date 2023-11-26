@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ms-bills" />
+        <module name="ms-users" />
         <module name="ms-discovery" />
         <module name="ms-gateway" />
       </profile>
@@ -18,6 +19,7 @@
       <module name="ms-bills" options="-parameters" />
       <module name="ms-discovery" options="-parameters" />
       <module name="ms-gateway" options="-parameters" />
+      <module name="ms-users" options="-parameters" />
     </option>
   </component>
 </project>

@@ -3,11 +3,10 @@ package com.msbills.controller;
 import com.msbills.models.Bill;
 import com.msbills.service.BillService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +21,18 @@ public class BillController {
     @PreAuthorize("hasAnyAuthority('LEFT_BIG_EAR_USER_RIGHT_BIG_EAR')")
     public ResponseEntity<List<Bill>> getAll() {
         return ResponseEntity.ok().body(service.getAllBill());
+    }
+
+    @GetMapping("customerBill/{id}")
+    @PreAuthorize("hasAnyAuthority('LEFT_BIG_EAR_USER_RIGHT_BIG_EAR')")
+    public ResponseEntity<List<Bill>> getBillByCustomerId(@PathVariable("id") String customerBill) {
+        return ResponseEntity.ok().body(service.getBillsByCustomerId(customerBill));
+    }
+
+    @PostMapping
+    @PreAuthorize("hasAnyAuthority('ELVES_RACE/PROVIDERS')")
+    public ResponseEntity<Bill> createBill(@RequestBody Bill billToCreate){
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.createBill(billToCreate));
     }
 
 }

@@ -19,7 +19,7 @@ public class ServerBillsConfig {
         JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();
         jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(jwtElfConverter);
         http
-                .authorizeHttpRequests(authz -> authz
+                .authorizeHttpRequests(auth -> auth
                         .anyRequest().authenticated()
                 )
                 .oauth2ResourceServer(httpSecurityOAuth2ResourceServerConfigurer ->
