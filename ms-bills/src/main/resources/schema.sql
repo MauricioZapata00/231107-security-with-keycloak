@@ -4,5 +4,6 @@ create table bill
     customer_bill varchar(255),
     product_bill  varchar(255),
     total_price   double,
+    customer_id varchar(255),
     primary key (id_bill)
 );

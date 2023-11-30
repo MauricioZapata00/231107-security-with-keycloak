@@ -25,8 +25,14 @@ public class BillController {
 
     @GetMapping("customerBill/{id}")
     @PreAuthorize("hasAnyAuthority('LEFT_BIG_EAR_USER_RIGHT_BIG_EAR')")
-    public ResponseEntity<List<Bill>> getBillByCustomerId(@PathVariable("id") String customerBill) {
-        return ResponseEntity.ok().body(service.getBillsByCustomerId(customerBill));
+    public ResponseEntity<List<Bill>> getBillByCustomerBill(@PathVariable("id") String customerBill) {
+        return ResponseEntity.ok().body(service.getBillsByCustomerBill(customerBill));
+    }
+
+    @GetMapping("customerId/{id}")
+    @PreAuthorize("hasAnyAuthority('LEFT_BIG_EAR_USER_RIGHT_BIG_EAR')")
+    public ResponseEntity<List<Bill>> getBillByCustomerId(@PathVariable("id") String customerId) {
+        return ResponseEntity.ok().body(service.getBillsByCustomerId(customerId));
     }
 
     @PostMapping

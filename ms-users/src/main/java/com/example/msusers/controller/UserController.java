@@ -7,7 +7,9 @@ import com.example.msusers.dto.UserDto;
 import com.example.msusers.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +25,26 @@ public class UserController {
     private final UserService userService;
 
     private final BillClient billClient;
+
+    @GetMapping("/default/all")
+    public ResponseEntity<List<UserDto>> getAllDefaultUsers(){
+        return ResponseEntity.ok(this.userService.getAllUsers()
+                .stream().map(this::mapUserModelToDto)
+                .toList());
+    }
+
+    @GetMapping("/bills/{id}")
+    public ResponseEntity<List<BillDto>> getBillByCustomerBill(@PathVariable("id") String customerId) {
+        return this.billClient.getBillsByCustomerId(customerId);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<List<UserDto>> getUserById(@PathVariable("id") String userId) {
+        return ResponseEntity.ok(this.userService.getUserById(userId)
+                .stream().map(this::mapUserModelToDto)
+                .toList());
+    }
+
 
     @GetMapping("/all")
     public ResponseEntity<List<UserDto>> getAllUsers(){
